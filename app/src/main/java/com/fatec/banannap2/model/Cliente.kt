@@ -1,6 +1,4 @@
-package com.fatec.banannap2.ui.model
-
-import java.math.BigDecimal
+package com.fatec.banannap2.model
 
 class Cliente (val nomeComercio : String
 //               val endereco : String,

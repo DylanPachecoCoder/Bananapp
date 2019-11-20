@@ -6,11 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.fatec.banannap2.R
-import com.fatec.banannap2.ui.model.Cliente
+import com.fatec.banannap2.model.Cliente
 import kotlinx.android.synthetic.main.item_cliente.view.*
 
 class ListClientesAdapter(private val listaClientes: MutableList<Cliente>,
-                          private val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+                          private val context: Context,
+                          val onClick : (Cliente) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_cliente, parent, false)
@@ -30,8 +31,10 @@ class ListClientesAdapter(private val listaClientes: MutableList<Cliente>,
 
     fun RecyclerView.ViewHolder.bindView(cliente: Cliente) {
         val nomeCliente = itemView.lista_cliente_nome
-
         nomeCliente.text = cliente.nomeComercio
+        itemView.setOnClickListener{
+            onClick.invoke(cliente)
+        }
 
     }
 

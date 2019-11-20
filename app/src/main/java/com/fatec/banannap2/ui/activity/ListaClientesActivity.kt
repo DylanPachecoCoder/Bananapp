@@ -6,11 +6,11 @@ import android.os.Bundle
 import android.view.View
 import com.fatec.banannap2.R
 import com.fatec.banannap2.ui.adapter.ListClientesAdapter
-import com.fatec.banannap2.ui.model.Cliente
+import com.fatec.banannap2.model.Cliente
 import kotlinx.android.synthetic.main.activity_cliente.*
 import kotlinx.android.synthetic.main.recyclerview_cliente_list.*
 
-class ClienteActivity : AppCompatActivity() {
+class ListaClientesActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +29,11 @@ class ClienteActivity : AppCompatActivity() {
         listaClientes.addAll(mutableListOf)
 
         val recyclerView = list_clientes_recyclerview
-        recyclerView.adapter = ListClientesAdapter(listaClientes, this)
+        recyclerView.adapter = ListClientesAdapter(listaClientes, this){
+            cliente : Cliente ->
+            val vaiParaClienteActivity = Intent(this, DadosClienteActivity::class.java)
+            startActivity(vaiParaClienteActivity)
+        }
 
 
         val fab = floatingActionButton
