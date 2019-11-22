@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.fatec.banannap2.R
 import kotlinx.android.synthetic.main.activity_menu_gerente.*
+import kotlinx.android.synthetic.main.toolbar.*
 
 class MenuGerenteActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_gerente)
+
+        colappsingtoolbar.title = ""
 
         val botaoPedido = menu_cardview_cliente
 

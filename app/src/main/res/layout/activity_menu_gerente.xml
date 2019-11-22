@@ -10,6 +10,20 @@
     <include layout="@layout/toolbar"
         android:id="@+id/toolbar"/>
 
+    <TextView
+        android:id="@+id/menu_textview_bananapp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/courgette"
+        android:text="Bananapp"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="@+id/toolbar" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/menu_cardview_pedido"
         android:layout_width="0dp"
@@ -324,6 +338,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

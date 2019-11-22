@@ -9,13 +9,18 @@ import com.fatec.banannap2.ui.adapter.ListClientesAdapter
 import com.fatec.banannap2.model.Cliente
 import kotlinx.android.synthetic.main.activity_cliente.*
 import kotlinx.android.synthetic.main.recyclerview_cliente_list.*
+import kotlinx.android.synthetic.main.toolbar.*
 
 class ListaClientesActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cliente)
-        title = "Clientes"
+
+        val toolbarid = toolbarid2
+        setSupportActionBar(toolbarid)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        colappsingtoolbar.title = "Clientes"
 
         val listaClientes : MutableList<Cliente> = mutableListOf()
 
@@ -36,21 +41,15 @@ class ListaClientesActivity : AppCompatActivity() {
             startActivity(intent)
         })
 
-
-
-//        {
-//            cliente : Cliente ->
-//            val vaiParaClienteActivity = Intent(this, DadosClienteActivity::class.java)
-//            startActivity(vaiParaClienteActivity)
-//        }
-
-
         val fab = floatingActionButton
         fab.setOnClickListener(View.OnClickListener {
             val vaiParaCadastraCliente = Intent(this, CadastraClienteActivity::class.java)
             startActivity(vaiParaCadastraCliente)
         })
+    }
 
-
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }
