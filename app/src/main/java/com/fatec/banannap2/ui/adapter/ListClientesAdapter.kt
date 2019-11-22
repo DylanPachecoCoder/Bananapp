@@ -24,17 +24,15 @@ class ListClientesAdapter(private val listaClientes: MutableList<Cliente>,
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val cliente = listaClientes[position]
-        holder.bindView(cliente)
+        holder.bindView(cliente, onClick)
     }
 
     class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView)
 
-    fun RecyclerView.ViewHolder.bindView(cliente: Cliente) {
+    fun RecyclerView.ViewHolder.bindView(cliente: Cliente, onClick: (Cliente) -> Unit) {
         val nomeCliente = itemView.lista_cliente_nome
         nomeCliente.text = cliente.nomeComercio
-        itemView.setOnClickListener{
-            onClick.invoke(cliente)
-        }
+        itemView.setOnClickListener{ onClick(cliente) }
 
     }
 

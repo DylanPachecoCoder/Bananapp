@@ -20,20 +20,29 @@ class ListaClientesActivity : AppCompatActivity() {
         val listaClientes : MutableList<Cliente> = mutableListOf()
 
         val mutableListOf = mutableListOf<Cliente>(
-            Cliente("Quitanta da Marcia"),
-            Cliente("Mercado X Loja 1"),
-            Cliente("Sergipe"),
-            Cliente("Alemão")
+            Cliente("Quitanta da Marcia", "Rua x", "Josefina", "9999999"),
+            Cliente("Quitanta da Maria", "Rua y", "Maria", "8888888"),
+            Cliente("Mercado da esquina", "Rua z", "José", "777777"),
+            Cliente("Padaria", "Rua w", "Marcos", "666666"),
+            Cliente("Sacolão do Marcello", "Rua a", "Cara simpática", "5555555")
             )
 
         listaClientes.addAll(mutableListOf)
 
         val recyclerView = list_clientes_recyclerview
-        recyclerView.adapter = ListClientesAdapter(listaClientes, this){
-            cliente : Cliente ->
-            val vaiParaClienteActivity = Intent(this, DadosClienteActivity::class.java)
-            startActivity(vaiParaClienteActivity)
-        }
+        recyclerView.adapter = ListClientesAdapter(listaClientes, this, onClick = {
+            val intent = Intent(this, DadosClienteActivity::class.java)
+            intent.putExtra("cliente", it)
+            startActivity(intent)
+        })
+
+
+
+//        {
+//            cliente : Cliente ->
+//            val vaiParaClienteActivity = Intent(this, DadosClienteActivity::class.java)
+//            startActivity(vaiParaClienteActivity)
+//        }
 
 
         val fab = floatingActionButton
