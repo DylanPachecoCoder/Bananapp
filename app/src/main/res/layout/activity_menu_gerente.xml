@@ -7,18 +7,23 @@
     android:scrollbarThumbHorizontal="@color/colorAccent"
     tools:context=".ui.activity.MenuGerenteActivity">
 
+    <include layout="@layout/toolbar"
+        android:id="@+id/toolbar"/>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/menu_cardview_pedido"
-        android:layout_width="170dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="25dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="20dp"
         app:cardMaxElevation="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toStartOf="@+id/menu_cardview_cliente"
-        app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toTopOf="@id/menu_cardview_funcionario">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -53,14 +58,18 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/menu_cardview_cliente"
-        android:layout_width="170dp"
-        android:layout_height="120dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="20dp"
         app:cardMaxElevation="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/menu_cardview_pedido"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toEndOf="@+id/menu_cardview_pedido"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toTopOf="@+id/menu_cardview_caixas_vazias"
         app:srcCompat="@mipmap/ic_launcher"
         tools:srcCompat="@mipmap/ic_launcher_round">
 
@@ -94,15 +103,18 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/imageButton13"
-        android:layout_width="170dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="25dp"
+        android:id="@+id/menu_cardview_funcionario"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="20dp"
         app:cardMaxElevation="50dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="@+id/menu_cardview_pedido"
+        app:layout_constraintEnd_toStartOf="@+id/menu_cardview_caixas_vazias"
         app:layout_constraintTop_toBottomOf="@+id/menu_cardview_pedido"
+        app:layout_constraintBottom_toTopOf="@id/menu_cardview_fluxo_caixa"
         app:srcCompat="@mipmap/ic_launcher">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -135,14 +147,18 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/imageButton14"
-        android:layout_width="170dp"
-        android:layout_height="120dp"
+        android:id="@+id/menu_cardview_caixas_vazias"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="20dp"
         app:cardMaxElevation="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton13"
-        app:layout_constraintStart_toStartOf="@+id/menu_cardview_cliente"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/menu_cardview_funcionario"
+        app:layout_constraintEnd_toEndOf="@+id/menu_cardview_cliente"
+        app:layout_constraintTop_toBottomOf="@+id/menu_cardview_cliente"
+        app:layout_constraintBottom_toTopOf="@id/menu_cardview_carregamento"
         app:srcCompat="@mipmap/ic_launcher">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -175,15 +191,19 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_fluxo_caixa_menu"
-        android:layout_width="170dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="25dp"
+        android:id="@+id/menu_cardview_fluxo_caixa"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="20dp"
         app:cardMaxElevation="50dp"
-        app:layout_constraintStart_toStartOf="@+id/imageButton13"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton13"
+        android:layout_marginEnd="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintStart_toStartOf="@+id/menu_cardview_funcionario"
+        app:layout_constraintEnd_toStartOf="@+id/menu_cardview_carregamento"
+        app:layout_constraintTop_toBottomOf="@+id/menu_cardview_funcionario"
+        app:layout_constraintBottom_toTopOf="@id/menu_cardview_estoque"
         app:srcCompat="@mipmap/ic_launcher">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -217,14 +237,18 @@
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/imageButton17"
-        android:layout_width="170dp"
-        android:layout_height="120dp"
+        android:id="@+id/menu_cardview_carregamento"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="20dp"
         app:cardMaxElevation="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/card_fluxo_caixa_menu"
-        app:layout_constraintStart_toStartOf="@+id/imageButton14"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/menu_cardview_fluxo_caixa"
+        app:layout_constraintEnd_toEndOf="@id/menu_cardview_caixas_vazias"
+        app:layout_constraintTop_toBottomOf="@id/menu_cardview_caixas_vazias"
+        app:layout_constraintBottom_toTopOf="@+id/menu_cardview_estoque"
         app:srcCompat="@mipmap/ic_launcher">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -258,17 +282,18 @@
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/imageButton18"
-        android:layout_width="170dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="25dp"
+        android:id="@+id/menu_cardview_estoque"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="20dp"
         app:cardMaxElevation="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton17"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/menu_cardview_carregamento"
+        app:layout_constraintStart_toStartOf="@id/menu_cardview_fluxo_caixa"
+        app:layout_constraintTop_toBottomOf="@+id/menu_cardview_carregamento"
         app:srcCompat="@mipmap/ic_launcher">
 
         <androidx.constraintlayout.widget.ConstraintLayout

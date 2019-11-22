@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".ui.activity.CadastraClienteActivity">
 
+    <include layout="@layout/toolbar"
+        android:id="@+id/toolbar"/>
+
     <TextView
         android:id="@+id/dados_cliente_textview_nome_layout"
         android:layout_width="wrap_content"

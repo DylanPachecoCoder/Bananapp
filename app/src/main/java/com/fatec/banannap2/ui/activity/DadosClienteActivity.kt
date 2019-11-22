@@ -20,7 +20,5 @@ class DadosClienteActivity : AppCompatActivity() {
         dados_cliente_textview_endereco.text = cliente.endereco
         dados_cliente_textview_responsavel.text = cliente.pessoaResponsavel
         dados_cliente_textview_telefone.text = cliente.Telefone
-
-
     }
 }

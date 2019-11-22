@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context="com.fatec.banannap2.ui.activity.ListaClientesActivity">
 
+    <include layout="@layout/toolbar"
+        android:id="@+id/toolbar"/>
+
     <include layout="@layout/recyclerview_cliente_list"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
