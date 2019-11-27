@@ -10,7 +10,7 @@ import com.fatec.banannap2.R
 import com.fatec.banannap2.model.Cliente
 import kotlinx.android.synthetic.main.item_cliente.view.*
 
-class ListClientesAdapter(private val listaClientes: MutableList<Cliente>,
+class ListClientesAdapter(private val listaClientes: List<Cliente>,
                           private val context: Context,
                           val onClick : (Cliente) -> Unit) : RecyclerView.Adapter<ListClientesAdapter.ViewHolder>() {
 
