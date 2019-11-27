@@ -1,6 +1,7 @@
 package com.fatec.banannap2.dao
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import com.fatec.banannap2.model.Cliente
@@ -13,4 +14,7 @@ interface ClienteDAO {
 
     @Insert
     fun add(vararg cliente: Cliente)
+
+    @Delete
+    fun remove(vararg cleinte : Cliente)
 }
