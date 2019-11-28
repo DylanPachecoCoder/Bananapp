@@ -2,7 +2,6 @@ package com.fatec.banannap2.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.room.Room
 import com.fatec.banannap2.R
 import com.fatec.banannap2.dao.ClienteDAO
@@ -40,7 +39,7 @@ class CadastraClienteActivity : AppCompatActivity() {
         botaoSalvarCliente.setOnClickListener {
             val nomeComercio = cadastro_nome_comercio.text.toString()
             val endereco = cadastro_endereco.text.toString()
-            val nomeResponsavel = cadastro_nome_responsavel.text.toString()
+            val nomeResponsavel = cadastro_textview_rua.text.toString()
             val telefone = cadastro_telefone.text.toString()
             val novoCliente = Cliente(nomeComercio, endereco, nomeResponsavel, telefone)
             clienteDAO.add(novoCliente)
