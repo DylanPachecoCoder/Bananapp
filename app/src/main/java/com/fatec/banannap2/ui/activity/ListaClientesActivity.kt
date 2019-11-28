@@ -74,6 +74,7 @@ class ListaClientesActivity : AppCompatActivity() {
             "techstore-database"
         )
             .allowMainThreadQueries()
+            .fallbackToDestructiveMigration()
             .build()
         clienteDAO = database.clienteDao()
     }

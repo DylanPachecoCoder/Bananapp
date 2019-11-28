@@ -7,7 +7,10 @@ import java.io.Serializable
 @Entity
 class Cliente(
     val nomeComercio: String,
-    val endereco: String,
+    val rua: String,
+    val numero : String,
+    val bairro : String,
+    val cidade : String,
     val pessoaResponsavel: String,
     val Telefone: String,
     @PrimaryKey(autoGenerate = true)

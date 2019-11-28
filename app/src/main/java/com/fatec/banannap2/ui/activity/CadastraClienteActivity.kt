@@ -30,6 +30,7 @@ class CadastraClienteActivity : AppCompatActivity() {
             "techstore-database"
         )
             .allowMainThreadQueries()
+            .fallbackToDestructiveMigration()
             .build()
         clienteDAO = database.clienteDao()
     }
@@ -38,10 +39,13 @@ class CadastraClienteActivity : AppCompatActivity() {
         val botaoSalvarCliente = botao_salvar_cliente
         botaoSalvarCliente.setOnClickListener {
             val nomeComercio = cadastro_nome_comercio.text.toString()
-            val endereco = cadastro_endereco.text.toString()
-            val nomeResponsavel = cadastro_textview_rua.text.toString()
+            val rua = cadastro_rua.text.toString()
+            val numero = cadastro_numero.text.toString()
+            val bairro = cadastro_bairro.text.toString()
+            val cidade = cadastro_cidade.text.toString()
+            val nomeResponsavel = cadastro_responsavel.text.toString()
             val telefone = cadastro_telefone.text.toString()
-            val novoCliente = Cliente(nomeComercio, endereco, nomeResponsavel, telefone)
+            val novoCliente = Cliente(nomeComercio, rua, numero, bairro, cidade, nomeResponsavel, telefone)
             clienteDAO.add(novoCliente)
             finish()
         }

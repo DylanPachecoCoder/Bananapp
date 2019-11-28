@@ -18,17 +18,28 @@ class DadosClienteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dados_cliente)
 
+        configuraToolbar()
+        val cliente = recebeDadosDoCliente()
+        preencheDadosDoCliente(cliente)
+    }
+
+    private fun preencheDadosDoCliente(cliente: Cliente) {
+        dados_cliente_textview_nome.text = cliente.nomeComercio
+        dados_cliente_textview_endereco.text = cliente.rua
+        dados_cliente_textview_responsavel.text = cliente.pessoaResponsavel
+        dados_cliente_textview_telefone.text = cliente.Telefone
+    }
+
+    private fun recebeDadosDoCliente(): Cliente {
+        val cliente = intent.getSerializableExtra("cliente") as Cliente
+        return cliente
+    }
+
+    private fun configuraToolbar() {
         val toolbarid = toolbarid2
         setSupportActionBar(toolbarid)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         colappsingtoolbar.title = "Dados do Cliente"
-
-        val cliente = intent.getSerializableExtra("cliente") as Cliente
-
-        dados_cliente_textview_nome.text = cliente.nomeComercio
-        dados_cliente_textview_endereco.text = cliente.endereco
-        dados_cliente_textview_responsavel.text = cliente.pessoaResponsavel
-        dados_cliente_textview_telefone.text = cliente.Telefone
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
