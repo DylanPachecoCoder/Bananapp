@@ -14,7 +14,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".ui.activity.DadosClienteActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".ui.activity.CadastraClienteActivity"
+        <activity android:name=".ui.activity.FormularioClienteActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".ui.activity.ListaClientesActivity"
             android:theme="@style/AppTheme.NoActionBar"/>

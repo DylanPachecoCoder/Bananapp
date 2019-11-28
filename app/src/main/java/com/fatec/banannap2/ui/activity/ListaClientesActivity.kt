@@ -3,10 +3,7 @@ package com.fatec.banannap2.ui.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.room.Room
 import com.fatec.banannap2.R
 import com.fatec.banannap2.dao.ClienteDAO
@@ -43,8 +40,9 @@ class ListaClientesActivity : AppCompatActivity() {
     private fun configuraFab() {
         val fab = floatingActionButton
         fab.setOnClickListener(View.OnClickListener {
-            val vaiParaCadastraCliente = Intent(this, CadastraClienteActivity::class.java)
-            startActivity(vaiParaCadastraCliente)
+            val intent = Intent(this, FormularioClienteActivity::class.java)
+            intent.putExtra("chamado", true)
+            startActivity(intent)
         })
     }
 

@@ -1,10 +1,10 @@
 package com.fatec.banannap2.ui.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import com.fatec.banannap2.R
 import com.fatec.banannap2.model.Cliente
 import kotlinx.android.synthetic.main.activity_dados_cliente.*
@@ -12,12 +12,14 @@ import kotlinx.android.synthetic.main.toolbar.*
 
 class DadosClienteActivity : AppCompatActivity() {
 
+    lateinit var cliente: Cliente
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dados_cliente)
 
         configuraToolbar()
-        val cliente = recebeDadosDoCliente()
+        cliente = recebeDadosDoCliente()
         preencheDadosDoCliente(cliente)
     }
 
@@ -51,7 +53,10 @@ class DadosClienteActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val itemSelecionado = item.itemId
         if(itemSelecionado == R.id.activity_cadastra_cliente_editar){
-            Toast.makeText(this, "Editar", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, FormularioClienteActivity::class.java)
+            intent.putExtra("chamado", false)
+            intent.putExtra("cliente", cliente)
+            startActivity(intent)
         }
         return super.onOptionsItemSelected(item)
     }
