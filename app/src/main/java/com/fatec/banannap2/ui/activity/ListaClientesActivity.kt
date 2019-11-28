@@ -52,7 +52,7 @@ class ListaClientesActivity : AppCompatActivity() {
 
         val adapter = ListClientesAdapter(listaClientes, this, onClick = {
             val intent = Intent(this, DadosClienteActivity::class.java)
-            intent.putExtra("clienteSelecionado", it)
+            intent.putExtra("cliente", it)
             startActivity(intent)
         }, clienteDAO = clienteDAO)
         list_clientes_recyclerview.adapter = adapter
