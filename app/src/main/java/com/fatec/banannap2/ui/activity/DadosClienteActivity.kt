@@ -2,9 +2,7 @@ package com.fatec.banannap2.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Toast
 import com.fatec.banannap2.R
@@ -25,7 +23,10 @@ class DadosClienteActivity : AppCompatActivity() {
 
     private fun preencheDadosDoCliente(cliente: Cliente) {
         dados_cliente_textview_nome.text = cliente.nomeComercio
-        dados_cliente_textview_endereco.text = cliente.rua
+        dados_cliente_textview_rua.text = cliente.rua
+        dados_cliente_textview_numero.text = cliente.numero
+        dados_cliente_textview_bairro.text = cliente.bairro
+        dados_cliente_textview_cidade.text = cliente.cidade
         dados_cliente_textview_responsavel.text = cliente.pessoaResponsavel
         dados_cliente_textview_telefone.text = cliente.Telefone
     }
@@ -48,7 +49,10 @@ class DadosClienteActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        Toast.makeText(this, "Editar", Toast.LENGTH_LONG).show()
+        val itemSelecionado = item.itemId
+        if(itemSelecionado == R.id.activity_cadastra_cliente_editar){
+            Toast.makeText(this, "Editar", Toast.LENGTH_SHORT).show()
+        }
         return super.onOptionsItemSelected(item)
     }
 

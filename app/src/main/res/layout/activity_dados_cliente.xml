@@ -23,6 +23,7 @@
             android:text="Nome"
             android:textSize="24sp"
             android:textStyle="bold"
+            android:textColor="@color/colorAccent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
@@ -31,7 +32,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:text="Dylan Pacheco"
+            android:text="Quitanda do Zé"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/dados_cliente_textview_nome_layout"
@@ -45,32 +46,111 @@
             android:text="Endereço"
             android:textSize="24sp"
             android:textStyle="bold"
+            android:textColor="@color/colorAccent"
             app:layout_constraintStart_toStartOf="@+id/dados_cliente_textview_nome"
             app:layout_constraintTop_toBottomOf="@id/dados_cliente_textview_nome" />
 
         <TextView
-            android:id="@+id/dados_cliente_textview_endereco"
+            android:id="@+id/dados_cliente_textview_rua_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Rua:"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/dados_cliente_textview_endereco_layout"
+            app:layout_constraintTop_toBottomOf="@+id/dados_cliente_textview_endereco_layout" />
+
+
+        <TextView
+            android:id="@+id/dados_cliente_textview_rua"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="Dylan Pacheco"
+            android:text="Coronel Pereira Neto"
             android:textSize="20sp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@id/dados_cliente_textview_rua_layout"
             app:layout_constraintEnd_toEndOf="@id/dados_cliente_textview_nome"
-            app:layout_constraintStart_toStartOf="@id/dados_cliente_textview_endereco_layout"
-            app:layout_constraintTop_toBottomOf="@id/dados_cliente_textview_endereco_layout" />
+            app:layout_constraintStart_toEndOf="@+id/dados_cliente_textview_rua_layout" />
 
+        <TextView
+            android:id="@+id/dados_cliente_textview_numero_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Nº"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/dados_cliente_textview_nome"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/dados_cliente_textview_endereco_layout"
+            app:layout_constraintTop_toBottomOf="@id/dados_cliente_textview_rua" />
+
+        <TextView
+            android:id="@+id/dados_cliente_textview_numero"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="366"
+            android:textSize="20sp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/dados_cliente_textview_numero_layout"
+            app:layout_constraintBottom_toBottomOf="@+id/dados_cliente_textview_numero_layout" />
+
+        <TextView
+            android:id="@+id/dados_cliente_textview_bairro_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Bairo:"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@id/dados_cliente_textview_numero"
+            app:layout_constraintTop_toBottomOf="@id/dados_cliente_textview_rua" />
+
+        <TextView
+            android:id="@+id/dados_cliente_textview_bairro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calmon Viana"
+            android:textSize="20sp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/dados_cliente_textview_bairro_layout"
+            app:layout_constraintBottom_toBottomOf="@+id/dados_cliente_textview_numero_layout" />
+
+        <TextView
+            android:id="@+id/dados_cliente_textview_cidade_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Cidade:"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/dados_cliente_textview_numero_layout"
+            app:layout_constraintTop_toBottomOf="@id/dados_cliente_textview_numero_layout" />
+
+        <TextView
+            android:id="@+id/dados_cliente_textview_cidade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Poá"
+            android:textSize="20sp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@id/dados_cliente_textview_cidade_layout"
+            app:layout_constraintTop_toBottomOf="@id/dados_cliente_textview_numero_layout" />
 
         <TextView
             android:id="@+id/dados_cliente_textview_responsavel_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
             android:text="Responsável"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/dados_cliente_textview_endereco" />
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintStart_toStartOf="@+id/dados_cliente_textview_cidade_layout"
+            app:layout_constraintTop_toBottomOf="@+id/dados_cliente_textview_cidade_layout" />
 
         <TextView
             android:id="@+id/dados_cliente_textview_responsavel"
@@ -79,7 +159,7 @@
             android:layout_marginBottom="16dp"
             android:text="Dylan Pacheco"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@id/dados_cliente_textview_endereco"
+            app:layout_constraintEnd_toEndOf="@id/dados_cliente_textview_rua"
             app:layout_constraintStart_toStartOf="@id/dados_cliente_textview_responsavel_layout"
             app:layout_constraintTop_toBottomOf="@id/dados_cliente_textview_responsavel_layout" />
 
@@ -91,6 +171,7 @@
             android:text="Telefone"
             android:textSize="24sp"
             android:textStyle="bold"
+            android:textColor="@color/colorAccent"
             app:layout_constraintStart_toStartOf="@+id/dados_cliente_textview_responsavel"
             app:layout_constraintTop_toBottomOf="@+id/dados_cliente_textview_responsavel" />
 
