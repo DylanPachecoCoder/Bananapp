@@ -54,7 +54,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/cadastro_textview_endereco_numero"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             app:layout_constraintStart_toStartOf="@id/cadastro_textview_endereco_rua"

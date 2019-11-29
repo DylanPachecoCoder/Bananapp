@@ -6,13 +6,13 @@ import java.io.Serializable
 
 @Entity
 class Cliente(
-    val nomeComercio: String,
-    val rua: String,
-    val numero : String,
-    val bairro : String,
-    val cidade : String,
-    val pessoaResponsavel: String,
-    val Telefone: String,
+    var nomeComercio: String,
+    var rua: String,
+    var numero : String,
+    var bairro : String,
+    var cidade : String,
+    var pessoaResponsavel: String,
+    var telefone: String,
     @PrimaryKey(autoGenerate = true)
     val id : Long = 0
 ) : Serializable

@@ -8,29 +8,31 @@ import com.fatec.banannap2.R
 import com.fatec.banannap2.dao.ClienteDAO
 import com.fatec.banannap2.database.BananappDatabase
 import com.fatec.banannap2.model.Cliente
-import kotlinx.android.synthetic.main.activity_cadastra_cliente.*
+import kotlinx.android.synthetic.main.activity_formulario_cliente.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 class FormularioClienteActivity : AppCompatActivity() {
 
     private lateinit var clienteDAO: ClienteDAO
-    private lateinit var botaoSalvarCliente : Button
+    private lateinit var botaoSalvarCliente: Button
+    private lateinit var cliente: Cliente
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_cadastra_cliente)
+        setContentView(R.layout.activity_formulario_cliente)
         configuraDAO()
         configuraToolbar()
         botaoSalvarCliente = botao_salvar_cliente
 
         val quemChamou = identificaSeEditaOuCadastra()
-        if(quemChamou){
+        if (quemChamou) {
             colappsingtoolbar.title = "Cadastro Cliente"
             configuraBotaoModoCriaCliente()
-        }else{
-            colappsingtoolbar.title = "Edita Cliente"
-            val cliente = intent.getSerializableExtra("cliente") as Cliente
+        } else {
+            colappsingtoolbar.title = "Editar Cliente"
+            cliente = intent.getSerializableExtra("cliente") as Cliente
             preencheCampos(cliente)
+            configuraBotaoModoEditaCliente()
         }
     }
 
@@ -41,7 +43,7 @@ class FormularioClienteActivity : AppCompatActivity() {
         cadastro_bairro.setText(cliente.bairro)
         cadastro_cidade.setText(cliente.cidade)
         cadastro_responsavel.setText(cliente.pessoaResponsavel)
-        cadastro_telefone.setText(cliente.Telefone)
+        cadastro_telefone.setText(cliente.telefone)
     }
 
     private fun identificaSeEditaOuCadastra(): Boolean {
@@ -67,6 +69,24 @@ class FormularioClienteActivity : AppCompatActivity() {
             clienteDAO.add(novoCliente)
             finish()
         }
+    }
+
+    private fun configuraBotaoModoEditaCliente() {
+        botaoSalvarCliente.setOnClickListener {
+            atualizaDadosDoCliente()
+            clienteDAO.update(cliente)
+            finish()
+        }
+    }
+
+    private fun atualizaDadosDoCliente() {
+        cliente.nomeComercio = cadastro_nome_comercio.text.toString()
+        cliente.rua = cadastro_rua.text.toString()
+        cliente.numero = cadastro_numero.text.toString()
+        cliente.bairro = cadastro_bairro.text.toString()
+        cliente.cidade = cadastro_cidade.text.toString()
+        cliente.pessoaResponsavel = cadastro_responsavel.text.toString()
+        cliente.telefone = cadastro_telefone.text.toString()
     }
 
     private fun recebeDadosDoCliente(): Cliente {

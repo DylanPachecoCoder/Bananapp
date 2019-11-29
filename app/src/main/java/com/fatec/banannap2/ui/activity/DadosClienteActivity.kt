@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.room.Room
 import com.fatec.banannap2.R
+import com.fatec.banannap2.database.BananappDatabase
 import com.fatec.banannap2.model.Cliente
 import kotlinx.android.synthetic.main.activity_dados_cliente.*
 import kotlinx.android.synthetic.main.toolbar.*
@@ -17,10 +19,30 @@ class DadosClienteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dados_cliente)
-
         configuraToolbar()
         cliente = recebeDadosDoCliente()
         preencheDadosDoCliente(cliente)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val database = Room.databaseBuilder(
+            this,
+            BananappDatabase::class.java,
+            "techstore-database"
+        )
+            .allowMainThreadQueries()
+            .fallbackToDestructiveMigration()
+            .build()
+        val clienteDAO = database.clienteDao()
+        val listaClientes = clienteDAO.all()
+        for (cliente : Cliente in listaClientes){
+            if(this.cliente.id == cliente.id){
+                preencheDadosDoCliente(cliente)
+                break
+            }
+        }
+
     }
 
     private fun preencheDadosDoCliente(cliente: Cliente) {
@@ -30,7 +52,7 @@ class DadosClienteActivity : AppCompatActivity() {
         dados_cliente_textview_bairro.text = cliente.bairro
         dados_cliente_textview_cidade.text = cliente.cidade
         dados_cliente_textview_responsavel.text = cliente.pessoaResponsavel
-        dados_cliente_textview_telefone.text = cliente.Telefone
+        dados_cliente_textview_telefone.text = cliente.telefone
     }
 
     private fun recebeDadosDoCliente(): Cliente {
