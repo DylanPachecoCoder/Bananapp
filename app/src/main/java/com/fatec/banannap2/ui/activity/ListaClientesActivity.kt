@@ -66,14 +66,7 @@ class ListaClientesActivity : AppCompatActivity() {
     }
 
     private fun configuraDAO() {
-        val database = Room.databaseBuilder(
-            this,
-            BananappDatabase::class.java,
-            "techstore-database"
-        )
-            .allowMainThreadQueries()
-            .fallbackToDestructiveMigration()
-            .build()
+        val database = BananappDatabase.getInstance(this)
         clienteDAO = database.clienteDao()
     }
 

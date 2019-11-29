@@ -26,14 +26,7 @@ class DadosClienteActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        val database = Room.databaseBuilder(
-            this,
-            BananappDatabase::class.java,
-            "techstore-database"
-        )
-            .allowMainThreadQueries()
-            .fallbackToDestructiveMigration()
-            .build()
+        val database = BananappDatabase.getInstance(this)
         val clienteDAO = database.clienteDao()
         val listaClientes = clienteDAO.all()
         for (cliente : Cliente in listaClientes){
