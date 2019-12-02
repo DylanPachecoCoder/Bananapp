@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.room.Room
 import com.fatec.banannap2.R
+import com.fatec.banannap2.asynctask.BuscaClienteTask
 import com.fatec.banannap2.database.BananappDatabase
 import com.fatec.banannap2.model.Cliente
 import kotlinx.android.synthetic.main.activity_dados_cliente.*
@@ -26,19 +26,16 @@ class DadosClienteActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+
         val database = BananappDatabase.getInstance(this)
         val clienteDAO = database.clienteDao()
-        val listaClientes = clienteDAO.all()
-        for (cliente : Cliente in listaClientes){
-            if(this.cliente.id == cliente.id){
-                preencheDadosDoCliente(cliente)
-                break
-            }
-        }
+        //BuscaClienteTask(clienteDAO, cliente).execute()
+        val findById = clienteDAO.findById(this.cliente.id)
+        preencheDadosDoCliente(findById)
 
     }
 
-    private fun preencheDadosDoCliente(cliente: Cliente) {
+    fun preencheDadosDoCliente(cliente: Cliente) {
         dados_cliente_textview_nome.text = cliente.nomeComercio
         dados_cliente_textview_rua.text = cliente.rua
         dados_cliente_textview_numero.text = cliente.numero

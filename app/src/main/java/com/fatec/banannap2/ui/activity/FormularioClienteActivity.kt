@@ -1,10 +1,12 @@
 package com.fatec.banannap2.ui.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.room.Room
 import com.fatec.banannap2.R
+import com.fatec.banannap2.asynctask.AtualizaClienteTask
 import com.fatec.banannap2.dao.ClienteDAO
 import com.fatec.banannap2.database.BananappDatabase
 import com.fatec.banannap2.model.Cliente
@@ -67,6 +69,7 @@ class FormularioClienteActivity : AppCompatActivity() {
     private fun configuraBotaoModoEditaCliente() {
         botaoSalvarCliente.setOnClickListener {
             atualizaDadosDoCliente()
+            //AtualizaClienteTask()
             clienteDAO.update(cliente)
             finish()
         }

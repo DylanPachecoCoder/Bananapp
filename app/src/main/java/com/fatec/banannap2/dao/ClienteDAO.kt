@@ -13,11 +13,14 @@ interface ClienteDAO {
     @Query("SELECT * FROM cliente")
     fun  all(): List<Cliente>
 
+    @Query("SELECT * FROM cliente WHERE id = :clienteId")
+    fun  findById(clienteId : Long): Cliente
+
     @Insert
     fun add(vararg cliente: Cliente)
 
     @Delete
-    fun remove(vararg cleinte : Cliente)
+    fun remove(vararg cliente : Cliente)
 
     @Insert(onConflict = REPLACE)
     fun update(vararg cleinte : Cliente)

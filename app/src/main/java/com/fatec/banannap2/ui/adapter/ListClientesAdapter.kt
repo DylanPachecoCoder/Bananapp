@@ -5,19 +5,16 @@ import android.view.ContextMenu
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.fatec.banannap2.R
-import com.fatec.banannap2.dao.ClienteDAO
 import com.fatec.banannap2.model.Cliente
 import kotlinx.android.synthetic.main.item_cliente.view.*
 
 class ListClientesAdapter(
-    private val listaClientes: MutableList<Cliente>,
+    private val listaClientes: MutableList<Cliente> = mutableListOf(),
     private val context: Context,
-    val onClick: (Cliente) -> Unit,
-    private val clienteDAO: ClienteDAO
+    var onClick: (Cliente) -> Unit = {}
 ) : RecyclerView.Adapter<ListClientesAdapter.ViewHolder>() {
 
     private lateinit var cliente : Cliente
@@ -36,6 +33,14 @@ class ListClientesAdapter(
         holder.bindView(cliente, onClick)
     }
 
+    fun atualiza(cliente: List<Cliente>) {
+        notifyItemRangeRemoved(0, this.listaClientes.size)
+        this.listaClientes.clear()
+        this.listaClientes.addAll(cliente)
+        notifyItemRangeInserted(0, this.listaClientes.size)
+    }
+
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
         View.OnCreateContextMenuListener {
         override fun onCreateContextMenu(
@@ -48,8 +53,8 @@ class ListClientesAdapter(
                 alertDialog.setTitle("Remover")
                 alertDialog.setMessage("Deseja remover este cliente ?")
                 alertDialog.setPositiveButton("Sim") { _, _ ->
-                    clienteDAO.remove(cliente)
-                    listaClientes.remove(cliente)
+//                    clienteDAO.remove(cliente)
+//                    listaClientes.remove(cliente)
                     notifyDataSetChanged()
                 }
                 alertDialog.setNegativeButton("Não") { _, _ ->
